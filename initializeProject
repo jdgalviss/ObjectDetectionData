@@ -1,32 +1,14 @@
 #Creating directories
 mkdir CSV
 mkdir images
-mkdir modelo_congelado
 mkdir output
 mkdir TFRecords
 mkdir train
 
-#Download the model
-mkdir model
-cd model
-wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-
-
-
-# Organizing the model directory
-tar -xvf ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-cd ssd_mobilenet_v2_coco_2018_03_29
-cp model.ckpt* ../
-cp pipeline.config ../ssd_mobilenet_v2_coco.config
-
-cd ..
-rm -rf ssd_mobilenet_v2_coco_2018_03_29
-rm -rf ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-
-#Coming to the root directory
 cd ..
 mkdir trash
 cd trash
+
 
 #Object detection tensorflow scripts
 wget https://github.com/puigalex/deteccion_objetos/archive/master.zip

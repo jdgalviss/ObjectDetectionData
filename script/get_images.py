@@ -6,7 +6,11 @@ import subprocess
 bash_command = "ls ../annotations"
 process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
 output, error = process.communicate()
-files = output
+#print(str(output).replace("b",""))
+files = str(output).replace("b","")
+files = str(files).replace("'","")
+files = files.split('\\n')
+files.pop()
 path = '../annotations/'
 savePath = '../images/'
 print("Downloading images...")

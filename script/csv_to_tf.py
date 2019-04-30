@@ -6,6 +6,11 @@ bash_command = "ls ../CSV"
 process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
 output, error = process.communicate()
 files = output
+files = str(output).replace("b","")
+files = str(files).replace("'","")
+files = files.split('\\n')
+files.pop()
+
 print("Creating TFRecords...")
 for fname in files:
     name = fname.split('.')[0]
@@ -15,4 +20,6 @@ for fname in files:
     bash_command = "python3 ../csv_a_tf.py --csv_input=" + input_path + " --output_path=" + output_path + " --images="+images
     process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
+    print(output)
+    print(error)
 print("TFRecords created")

@@ -3,8 +3,17 @@ import os
 import csv
 import random
 import math
+import subprocess
 
-files = !ls ../annotations
+bash_command = "ls ../annotations"
+process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+output, error = process.communicate()
+#print(str(output).replace("b",""))
+files = str(output).replace("b","")
+files = str(files).replace("'","")
+files = files.split('\\n')
+files.pop()
+
 path = '../annotations/'
 savePath = '../CSV/'
 width = "640"

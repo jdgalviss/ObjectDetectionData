@@ -33,7 +33,7 @@ def class_text_to_int(row_label):
     cwd = os.getcwd()
     label_map_dict = label_map_util.get_label_map_dict(cwd+'/../config/label_map.pbtxt')
     identifier = label_map_dict[row_label]
-    print(label_map_dict)
+    #print(label_map_dict)
     return identifier
 
 
