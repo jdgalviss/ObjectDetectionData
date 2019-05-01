@@ -4,6 +4,7 @@ modelo_congelado/
 object_detection/
 output/
 slim/
-TFRecords/
 train/
+data/TFRecords
+data/train_data
 

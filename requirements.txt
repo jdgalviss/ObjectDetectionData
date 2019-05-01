@@ -1,0 +1,8 @@
+Cython
+contextlib2
+jupyter
+matplotlib
+pandas
+python-socketio
+dicto
+numpy

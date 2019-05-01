@@ -1,0 +1,88 @@
+version: '2.3'
+
+
+services:
+
+  notebooks:
+    image: jupyter/tensorflow-notebook
+
+    volumes:
+      - ./data:/usr/src/app/data
+
+    working_dir: /usr/src/app/data
+
+    ports:
+      - 8888:8888
+
+    command: jupyter lab --no-browser --allow-root --ip 0.0.0.0 --NotebookApp.custom_display_url=http://localhost:8888
+
+  ipython-shell:
+    build: .
+    runtime: nvidia
+
+    volumes:
+      - ./data:/usr/src/app/data
+
+    working_dir: /usr/src/app/data
+
+    ports:
+      - 6006:6006
+
+    stdin_open: true
+    tty: true
+
+    command: ipython --TerminalInteractiveShell.editing_mode=vi
+
+  download-images:
+    build: .
+    runtime: nvidia
+
+    volumes:
+      - ./data:/usr/src/app/data
+
+    working_dir: /usr/src/app/data
+
+    ports:
+      - 6006:6006
+
+    stdin_open: true
+    tty: true
+
+    command: bash /usr/src/app/script/download-images.sh
+
+
+  create-tf-records:
+    build: .
+    runtime: nvidia
+
+    volumes:
+      - ./data:/usr/src/app/data
+
+    working_dir: /usr/src/app/data
+
+    ports:
+      - 6006:6006
+
+    stdin_open: true
+    tty: true
+
+    command: bash /usr/src/app/script/create-tf-records.sh
+
+
+
+  train:
+    build: .
+    runtime: nvidia
+
+    volumes:
+      - ./data:/usr/src/app/data
+
+    working_dir: /usr/src/app/data
+
+    ports:
+      - 6006:6006
+
+    stdin_open: true
+    tty: true
+
+    command: bash /usr/src/app/script/train.sh
