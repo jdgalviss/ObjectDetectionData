@@ -1,3 +1,6 @@
+if [ -d "mkdir /usr/src/app/data/train_data" ]; then
+    rm -rf /usr/src/app/data/train_data
+fi
 mkdir /usr/src/app/data/train_data
 cd /usr/src/app/models/research
 python object_detection/model_main.py \
