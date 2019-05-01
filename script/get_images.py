@@ -12,7 +12,7 @@ files = str(files).replace("'","")
 files = files.split('\\n')
 files.pop()
 path = '../annotations/'
-savePath = '../images/'
+savePath = '../data/images/'
 print("Downloading images...")
 for fname in files:
     with open(path + fname) as json_file:
