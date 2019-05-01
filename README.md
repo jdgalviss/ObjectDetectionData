@@ -1,20 +1,24 @@
-# Object Detection Data Pipeline
+# Object Detection Training Pipeline
 
 # Steps
 
-1. Create CSV, images,frozen_model, output, TFRecords, train directories using the following command in the project root:
+1. After cloning the repository, build the container:
 
 ```shell
-> bash initializeProject
+> cd ObjectDetectionData
+> docker-compose build
 ```
-2. Run `script/get_images.py` notebook to get dataset images
+2. Download images
+```shell
+> docker-compose run --service-ports --rm download-images
+```
 
-3. Run `script/json_to_csv.py` notebook to convert the annotation files into a train and validation CSV files
+3. Create tf records
+```shell
+> docker-compose run --service-ports --rm create-tf-records
+```
 
-4. Run `script/csv_to_tf.py` notebook to convert train and validation CSV into a tensorflow record.
-
-
-TF Records and labels file have been created.
-
-
-
+4. Train
+```shell
+> docker-compose run --service-ports --rm train
+```   
