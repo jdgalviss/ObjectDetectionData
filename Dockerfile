@@ -10,6 +10,7 @@ RUN apt-get update && \
     libxext6 \
     libxrender-dev \
     netbase \
+    nano \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
 
@@ -42,7 +43,7 @@ RUN pip install pycocotools
 
 # Clone object detection tensorflow/models repository
 WORKDIR /usr/src/app
-RUN /bin/bash -c "git clone https://github.com/tensorflow/models.git"
+RUN /bin/bash -c "git clone https://github.com/jdgalviss/models.git"
 
 # COCO API Installation
 WORKDIR /usr/src/app
