@@ -1,8 +1,11 @@
 
 cd /usr/src/app
-if [ -d "mkdir /usr/src/app/data/images" ]; then
-    rm -rf /usr/src/app/data/images
+if [ d "mkdir /usr/src/app/data/images" ]; then
+    rm -r /usr/src/app/data/images/*
 fi
-mkdir /usr/src/app/data/images
+if [ -d "mkdir /usr/src/app/data/images" ]; then
+    mkdir /usr/src/app/data/images
+fi
+
 cd script
 python get_images.py

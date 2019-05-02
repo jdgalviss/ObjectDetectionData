@@ -9,10 +9,14 @@ cp -r object_detection/ ../../
 cd ../../
 rm -rf trash/
 
-if [ -d "mkdir /usr/src/app/data/TFRecords" ]; then
-    rm -rf /usr/src/app/data/TFRecords
+if [ d "mkdir /usr/src/app/data/TFRecords" ]; then
+    rm -r /usr/src/app/data/TFRecords/*
 fi
-mkdir /usr/src/app/data/TFRecords
+
+if [ -d "mkdir /usr/src/app/data/TFRecords" ]; then
+    mkdir /usr/src/app/data/TFRecords
+fi
+
 cd script
 python json_to_csv.py
 python csv_to_tf.py

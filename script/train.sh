@@ -1,7 +1,10 @@
-if [ -d "mkdir /usr/src/app/data/train_data" ]; then
-    rm -rf /usr/src/app/data/train_data
+if [ d "mkdir /usr/src/app/data/train_data" ]; then
+    rm -r /usr/src/app/data/train_data/*
 fi
-mkdir /usr/src/app/data/train_data
+if [ -d "mkdir /usr/src/app/data/train_data" ]; then
+    mkdir /usr/src/app/data/train_data
+fi
+
 cd /usr/src/app/models/research
 python object_detection/model_main.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
