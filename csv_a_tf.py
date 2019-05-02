@@ -31,7 +31,7 @@ FLAGS = flags.FLAGS
 # TO-DO replace this with label map
 def class_text_to_int(row_label):
     cwd = os.getcwd()
-    label_map_dict = label_map_util.get_label_map_dict(cwd+'/../config/label_map.pbtxt')
+    label_map_dict = label_map_util.get_label_map_dict(cwd+'/../data/config/label_map.pbtxt')
     identifier = label_map_dict[row_label]
     #print(label_map_dict)
     return identifier
