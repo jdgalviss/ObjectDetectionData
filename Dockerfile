@@ -1,4 +1,5 @@
-FROM tensorflow/tensorflow:1.12.0-gpu-py3
+#FROM tensorflow/tensorflow:1.12.0-gpu-py3
+FROM nvidia/cuda:10.0-cudnn7-runtime
 
 RUN apt-get update && \
     apt-get install -y \
@@ -13,6 +14,9 @@ RUN apt-get update && \
     nano \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
+
+
+
 
 #Make directories
 RUN /bin/bash -c "mkdir -p /usr/src/app/{CSV,output,train,script,annotations}"
@@ -29,7 +33,8 @@ COPY csv_a_tf.py /usr/src/app/
 # Install object detection training dependencies
 
 COPY requirements.txt .
-RUN apt-get update && \
+RUN printf 'XKBMODEL="pc105"\nXKBLAYOUT="us"\nXKBVARIANT=""\nXKBOPTIONS=""\nBACKSPACE="guess"' >> /etc/default/keyboard
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y protobuf-compiler \
     python3-pil \
     python3-lxml \
