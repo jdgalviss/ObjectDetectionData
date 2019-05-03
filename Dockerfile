@@ -61,5 +61,5 @@ RUN /bin/bash -c "./bin/protoc object_detection/protos/*.proto --python_out=."
 ENV PYTHONPATH=$PYTHONPATH:/usr/src/app/models/research:/usr/src/app/models/research/slim
 ENV PIPELINE_CONFIG_PATH=/usr/src/app/data/models/ssd_mobilenet_v2/ssd_mobilenet_v2_coco.config
 ENV MODEL_DIR=/usr/src/app/data/train_data
-ENV NUM_TRAIN_STEPS=4000
+ENV NUM_TRAIN_STEPS=40000
 ENV SAMPLE_1_OF_N_EVAL_EXAMPLES=1
