@@ -19,10 +19,9 @@ RUN apt-get update && \
 
 
 #Make directories
-RUN /bin/bash -c "mkdir -p /usr/src/app/{CSV,output,train,script,annotations}"
+RUN /bin/bash -c "mkdir -p /usr/src/app/{CSV,output,train,annotations}"
 
-# Copy scripts used to prepare data
-COPY script /usr/src/app/script
+# Copy annotations and script to transform csv to tf
 COPY annotations /usr/src/app/annotations
 COPY csv_a_tf.py /usr/src/app/
 

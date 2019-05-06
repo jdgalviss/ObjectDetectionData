@@ -8,6 +8,7 @@ services:
 
     volumes:
       - ./data:/usr/src/app/data
+      - ./script:/usr/src/app/script
 
     working_dir: /usr/src/app/data
 
@@ -22,6 +23,7 @@ services:
 
     volumes:
       - ./data:/usr/src/app/data
+      - ./script:/usr/src/app/script
 
     working_dir: /usr/src/app/data
 
@@ -39,6 +41,7 @@ services:
 
     volumes:
       - ./data:/usr/src/app/data
+      - ./script:/usr/src/app/script
 
     working_dir: /usr/src/app/data
 
@@ -57,6 +60,7 @@ services:
 
     volumes:
       - ./data:/usr/src/app/data
+      - ./script:/usr/src/app/script
 
     working_dir: /usr/src/app/data
 
@@ -76,6 +80,7 @@ services:
 
     volumes:
       - ./data:/usr/src/app/data
+      - ./script:/usr/src/app/script
 
     working_dir: /usr/src/app/data
 
