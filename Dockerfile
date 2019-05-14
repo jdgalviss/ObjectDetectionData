@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:1.4.1-gpu-py3
 #FROM nvidia/cuda:10.0-cudnn7-runtime
 
 RUN apt-get update && \
@@ -46,19 +46,28 @@ RUN pip install pycocotools
 
 # Clone object detection tensorflow/models repository
 WORKDIR /usr/src/app
-RUN /bin/bash -c "git clone https://github.com/jdgalviss/models.git"
+RUN /bin/bash -c "git clone https://github.com/jdgalviss/models.git; cd /usr/src/app/models; git checkout f7e99c0"
 
-# COCO API Installation
-WORKDIR /usr/src/app
-RUN /bin/bash -c "git clone https://github.com/cocodataset/cocoapi.git; cd cocoapi/PythonAPI; make; cp -r pycocotools /usr/src/app/models/research/"
+# # COCO API Installation
+# WORKDIR /usr/src/app
+# RUN /bin/bash -c "git clone https://github.com/cocodataset/cocoapi.git; cd cocoapi/PythonAPI; make; cp -r pycocotools /usr/src/app/models/research/"
 
-# Protobuf compilation
+# # Protobuf compilation
+# WORKDIR /usr/src/app/models/research
+# RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
+# RUN unzip protobuf.zip
+# RUN /bin/bash -c "./bin/protoc object_detection/protos/*.proto --python_out=."
+# ENV PYTHONPATH=$PYTHONPATH:/usr/src/app/models/research:/usr/src/app/models/research/slim
+# ENV PIPELINE_CONFIG_PATH=/usr/src/app/data/models/faster_rcnn_resnet/faster_rcnn_resnet50_coco.config
+# ENV MODEL_DIR=/usr/src/app/data/train_data
+# ENV NUM_TRAIN_STEPS=5000
+# ENV SAMPLE_1_OF_N_EVAL_EXAMPLES=1
+
 WORKDIR /usr/src/app/models/research
-RUN wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-RUN unzip protobuf.zip
-RUN /bin/bash -c "./bin/protoc object_detection/protos/*.proto --python_out=."
+RUN /bin/bash -c "protoc object_detection/protos/*.proto --python_out=."
 ENV PYTHONPATH=$PYTHONPATH:/usr/src/app/models/research:/usr/src/app/models/research/slim
+
 ENV PIPELINE_CONFIG_PATH=/usr/src/app/data/models/ssd_mobilenet_v2/ssd_mobilenet_v2_coco.config
 ENV MODEL_DIR=/usr/src/app/data/train_data
-ENV NUM_TRAIN_STEPS=40000
+ENV NUM_TRAIN_STEPS=5000
 ENV SAMPLE_1_OF_N_EVAL_EXAMPLES=1

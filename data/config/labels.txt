@@ -1,17 +1,4 @@
-null
-bicycle
-bus
-bush
-car
-chair
-dining table
-fire hydrant
-motorcycle
-person
-pole
-suitcase
-traffic light
-traffic sign
-tree
-truck
-dog
+Green
+Red
+Yellow
+off
