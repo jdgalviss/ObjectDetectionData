@@ -1,7 +1,10 @@
-if [ d "mkdir /usr/src/app/data/train_data" ]; then
-    rm -r /usr/src/app/data/train_data/*
+#!/bin/bash
+export PIPELINE_CONFIG_PATH=/usr/src/app/data/models/ssd_mobilenet_v2/ssd_mobilenet_v2_coco.config
+export NUM_TRAIN_STEPS=40000
+if [ -d /usr/src/app/data/train_data ]; then
+    rm -r /usr/src/app/data/train_data
 fi
-if [ -d "mkdir /usr/src/app/data/train_data" ]; then
+if [ ! -d /usr/src/app/data/train_data ]; then
     mkdir /usr/src/app/data/train_data
 fi
 
