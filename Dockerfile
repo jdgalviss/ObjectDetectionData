@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.4.1-gpu-py3
+FROM tensorflow/tensorflow:1.4.1-gpu
 #FROM nvidia/cuda:10.0-cudnn7-runtime
 
 RUN apt-get update && \
@@ -34,10 +34,10 @@ COPY csv_a_tf.py /usr/src/app/
 COPY requirements.txt .
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y protobuf-compiler \
-    python3-pil \
-    python3-lxml \
-    python3-tk \
-    python3-setuptools \
+    python-pil \
+    python-lxml \
+    python-tk \
+    python-setuptools \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/* \
     && pip install -r requirements.txt \
