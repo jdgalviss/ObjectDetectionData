@@ -1,7 +1,8 @@
-if [ d "mkdir /usr/src/app/data/train_data" ]; then
+#!/bin/bash
+if [ -d /usr/src/app/data/train_data ]; then
     rm -r /usr/src/app/data/train_data/*
 fi
-if [ -d "mkdir /usr/src/app/data/train_data" ]; then
+if [ ! -d /usr/src/app/data/train_data ]; then
     mkdir /usr/src/app/data/train_data
 fi
 

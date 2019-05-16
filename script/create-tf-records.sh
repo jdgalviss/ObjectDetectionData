@@ -1,3 +1,4 @@
+#!/bin/bash
 #Object detection tensorflow scripts
 cd /usr/src/app
 mkdir trash
@@ -9,11 +10,11 @@ cp -r object_detection/ ../../
 cd ../../
 rm -rf trash/
 
-if [ d "mkdir /usr/src/app/data/TFRecords" ]; then
+if [ -d /usr/src/app/data/TFRecords ]; then
     rm -r /usr/src/app/data/TFRecords/*
 fi
 
-if [ -d "mkdir /usr/src/app/data/TFRecords" ]; then
+if [ ! -d /usr/src/app/data/TFRecords ]; then
     mkdir /usr/src/app/data/TFRecords
 fi
 
