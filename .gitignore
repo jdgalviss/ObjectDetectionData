@@ -9,6 +9,6 @@ data/TFRecords
 data/train_data
 data/trained_models
 data/capstone_models
-data/models
+data/models/ssd_inception_v2_coco_11_06_2017
 
 
