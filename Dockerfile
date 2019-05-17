@@ -41,7 +41,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/* \
     && pip install -r requirements.txt \
-    && pip install numpy
+    && pip install numpy \
+    && pip install tfinterface \
+    && pip install opencv-python
+    
 RUN pip install pycocotools
 
 # Clone object detection tensorflow/models repository
