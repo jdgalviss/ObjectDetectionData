@@ -42,6 +42,9 @@ Notes:
    weights to freeze.
 Example Usage:
 --------------
+data/TFRecords/Red
+im = Image.open("/usr/src/app/data/TFRecords/Red/0.0_85.png")
+
 predictor = tf.contrib.predictor.from_saved_model("/usr/src/app/data/capstone_models/mobilenetv1/saved_model/")
 
 predictor = tf.contrib.predictor.from_saved_model("/models/mobilenetv1/mobilenetv1/saved_model/")
