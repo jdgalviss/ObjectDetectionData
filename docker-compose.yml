@@ -10,7 +10,7 @@ services:
       - ./data:/usr/src/app/data
       - ./script:/usr/src/app/script
 
-    working_dir: /usr/src/app/data
+    working_dir: /usr/src/app
 
     ports:
       - 8888:8888
@@ -86,6 +86,7 @@ services:
 
     ports:
       - 6006:6006
+      - 8888:8888
 
     stdin_open: true
     tty: true
