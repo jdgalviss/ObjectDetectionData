@@ -8,7 +8,9 @@ train/
 data/TFRecords
 data/train_data
 data/trained_models
-data/capstone_models
+data/capstone_models/ssd
+data/capstone_models/faster_rcnn
+data/capstone_models/inceptionv2
 data/models
 
 
