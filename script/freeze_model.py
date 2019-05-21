@@ -51,8 +51,8 @@ predictor = tf.contrib.predictor.from_saved_model("/models/mobilenetv1/mobilenet
 python freeze_model.py \
     --input_type image_tensor \
     --pipeline_config_path /usr/src/app/data/models/mobilenetv1/ssd_mobilenet_v1_coco.config  \
-    --trained_checkpoint_prefix /usr/src/app/data/trained_models/mobilenetv1/train_data/model.ckpt-5000 \
-    --output_directory /usr/src/app/data/capstone_models/mobilenetv1
+    --trained_checkpoint_prefix /usr/src/app/data/train_data/model.ckpt-10000 \
+    --output_directory /usr/src/app/data/capstone_models/mobilenetv1_real_3
 
 python freeze_model.py \
     --input_type image_tensor \
