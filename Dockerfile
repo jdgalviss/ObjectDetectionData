@@ -15,9 +15,6 @@ RUN apt-get update && \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
 
-
-
-
 #Make directories
 RUN /bin/bash -c "mkdir -p /usr/src/app/{CSV,output,train,annotations}"
 
